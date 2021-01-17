@@ -12,19 +12,17 @@ beforeAll(async () => {
         app = await createServer();
     } else if (env.server.framework === constants.SUPPORTED_FRAMEWORK.HAPI) {
         app = require('../../lib/infrastructure/webserver/hapijs-server');
+        app = await createServer();
     }
 })
 
-
-function is200(response) {
-    expect(response.statusCode).toEqual(200);
-}
+afterAll(() => app.close());
 
 describe('Base case', () => {
     describe("Expect 200", () => {
         it('given no query parameters expect success', async () => {
             const response = await request(app).get('/v1/covid');
-            is200(response);
+            expect(response.statusCode).toEqual(200);
             expect(response.type).toEqual('application/json');
             expect(response.headers['cache-control']).toEqual('no-cache');
             expect(response.headers['x-powered-by']).toEqual('Express');

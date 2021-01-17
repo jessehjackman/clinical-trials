@@ -4,6 +4,7 @@
   "description": "NodeJS skill up clean architecture project wrapped as a COVID19 clinical trial API with full text search support.",
   "main": "index.js",
   "license": "MIT",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/jjackman/covid-trials/src/master/"
@@ -26,8 +27,6 @@
     "lodash": "^4.17.20",
     "nodemon": "^2.0.4",
     "pg": "^8.5.1",
-    "sqlite": "^4.0.19",
-    "sqlite3": "^5.0.0",
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
@@ -37,7 +36,7 @@
     "supertest": "^6.0.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "engines": {
     "node": ">=12",
