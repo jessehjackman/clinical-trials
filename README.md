@@ -6,6 +6,7 @@
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [API Reference](#api-reference)
+- [TODO](#todo)  
 - [License](#license)
 
 ## Motivation
@@ -65,7 +66,19 @@ Swagger docs available at the /api-docs endpoint upon installation (express fram
 i.e. http://localhost:3000/api-docs/#/covid/find-covid-trials
 
 Example:
-![api-reference-example.png](api-reference-example.png)
+![api-reference-example.png](doc/api-reference-example.png)
+
+## TODO
+- Circle CI
+- Full text search index (PostgreSQL)
+- Secure the 'query' parameter in PostgreSQL
+- replace require with import/from per ecma 6
+- Complete test plan
+  - Further integration tests / supertest, fake certain invalid db records
+  - Unit tests on validation, serialization/xform
+- Fix an unclosed handle issue with super test
+- Wire in Hapi JS into supertest
+- Add swagger docs to Hapi JS
 
 ## License
 MIT © [Jesse Jackman]()

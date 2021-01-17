@@ -27,7 +27,6 @@ describe('Base case', () => {
             expect(response.headers['cache-control']).toEqual('no-cache');
             expect(response.headers['x-powered-by']).toEqual('Express');
             expect(response.body.length).toEqual(10);
-            //TODO: validate response data
         });
 
         it('given invalid parameter field ignore and expect success', async () => {
