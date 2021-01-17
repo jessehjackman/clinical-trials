@@ -1,7 +1,7 @@
 {
   "name": "covid-trials",
   "version": "1.0.0",
-  "description": "NodeJS skill up clean architecture project wrapped as a COVID19 clinical trial API with full text search support.",
+  "description": "NodeJS upskill project wrapped as a COVID19 clinical trial API with full text search support.",
   "main": "index.js",
   "license": "MIT",
   "type": "commonjs",
@@ -10,7 +10,6 @@
     "url": "https://bitbucket.org/jjackman/covid-trials/src/master/"
   },
   "dependencies": {
-    "-": "0.0.1",
     "@hapi/good": "^9.0.1",
     "@hapi/good-console": "^9.0.1",
     "@hapi/good-squeeze": "^6.0.0",

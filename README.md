@@ -1,4 +1,4 @@
-# NodeJS Skill-up Project / Clinical Trials Search API
+# NodeJS Upskill Project / Clinical Trials Search API
 
 ##### Table of Contents
 - [Motivation](#motivation)
@@ -9,7 +9,7 @@
 - [License](#license)
 
 ## Motivation
-Basic skill-up project up on the tech stack described below.
+Basic upskill project on the tech stack described below.
 
 
 ## Tech Stack
@@ -49,17 +49,23 @@ frameworks (Express and Hapi).
 4) configure PostgreSQL
     a) docker build -t covid-trials-postgres-image .
     b) docker run -d --name covid-trials-postgres-container -p 5555:5432 covid-trials-postgres-image
+    C) If desired you may run init.sql on an existing PostgreSQL server
 4) npm install
 5) npm test
 6) npm start
 
-Optional) configure Elasticsearch by following AWS directions
-and setting master user name and password in .env
+(optional) Config Elasticsearch by following AWS directions and setting the appropriate env settings,
+ e.g. endpoint and master username + password. I did not include the raw data here but you can extract 
+ it from init.sql or from PostgreSQL directly.
+
 ```
 ## API Reference
-Swagger docs available at the /api-docs endpoint upon installation
+Swagger docs available at the /api-docs endpoint upon installation (express framework only)
 
 i.e. http://localhost:3000/api-docs/#/covid/find-covid-trials
+
+Example:
+![api-reference-example.png](api-reference-example.png)
 
 ## License
 MIT © [Jesse Jackman]()
