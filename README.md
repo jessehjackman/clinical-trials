@@ -1,23 +1,33 @@
 # NodeJS Skill-up Project / Clinical Trials Search API
 
-## Motivation
-Skill-up project up on the tech stack described below.
+##### Table of Contents
+- [Motivation](#motivation)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [API Reference](#api-reference)
+- [License](#license)
 
-## Tech
-1) Async primitives:  async-await
-2) Test framework: Jest / Supertest
-3) HTTP server framework: Express (e.g. routers, middleware)
+## Motivation
+Basic skill-up project up on the tech stack described below.
+
+
+## Tech Stack
+1) NodeJS
+2) Async primitives:  async-await
+3) Test framework: Jest / Supertest
+4) HTTP server framework: Express (e.g. routers, middleware)
    - Leveraged Joi for validation
-4) HTTP client: Axios
-5) ~~HTTP Request GUI:  Paw (Postman is an option too but server devs are all on Paw now)~~
-6) Docker
-7) Data Formats: YAML, JSON
-8) PostgreSQL
-9) ~~Redis~~ - In the early phase of development - disabled caching on purpose
-10) Swagger / JSON Schema
-11) CI/CD: CircleCI, Harness - work in progress
-12) ElasticSearch
-13) ~~Infrastructure as code:  Terraform~~
+5) HTTP client: Axios
+6) ~~HTTP Request GUI:  Paw (Postman is an option too but server devs are all on Paw now)~~
+7) Docker
+8) Data Formats: YAML, JSON
+9) PostgreSQL
+10) ~~Redis~~ - In the early phase of development - disabled caching on purpose
+11) Swagger / JSON Schema
+12) CI/CD: CircleCI, Harness - work in progress
+13) ElasticSearch
+14) ~~Infrastructure as code:  Terraform~~
 
 
 Avoiding ORM as I believe it's a leaky abstraction, but I did decide to add a relation db query builder -> knex.
@@ -46,20 +56,10 @@ frameworks (Express and Hapi).
 Optional) configure Elasticsearch by following AWS directions
 and setting master user name and password in .env
 ```
-
-#DOCKER - postgresql
-Docker file is checked into the root of the project and contains everything you need to get started
-- From the root of the project
-- docker build -t covid-trials-postgres-image .
-- docker run -d --name covid-trials-postgres-container -p 5555:5432 covid-trials-postgres-image
-
 ## API Reference
 Swagger docs available at the /api-docs endpoint upon installation
 
 i.e. http://localhost:3000/api-docs/#/covid/find-covid-trials
-
-## Tests
-todo
 
 ## License
 MIT © [Jesse Jackman]()
