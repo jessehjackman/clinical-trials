@@ -45,7 +45,7 @@ frameworks (Express and Hapi).
 ```
 1) git clone https://github.com/jessehjackman/clinical-trials.git
 2) cd clinical-trials
-3) rename/move template.env -> .env (update id desired) 
+3) rename/move template.env -> .env (update if desired) 
 4) configure PostgreSQL
     a) docker build -t covid-trials-postgres-image .
     b) docker run -d --name covid-trials-postgres-container -p 5555:5432 covid-trials-postgres-image
