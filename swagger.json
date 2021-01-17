@@ -1,0 +1,223 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "COVID clinical trial search API. Best resource to search COVID-19 clinical trials aggregated from around the world.",
+    "version": "1.0.0",
+    "title": "Clinical Trials",
+    "contact": {
+      "email": "jesse.jackman@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "covid",
+      "description": "COVID-19 clinical trials endpoint"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/covid": {
+      "get": {
+        "tags": [
+          "covid"
+        ],
+        "summary": "Search for COVID-19 clinical trials",
+        "operationId": "find-covid-trials",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search term used in full text search.\ne.g: ?query=hydroxychloroquine+randomized",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Sort order\ne.g: ?order=start_date:desc",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "start_date",
+              "start_date:desc",
+              "end_date",
+              "end_date:desc"
+            ],
+            "default": "start_date"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of records to return in a single request\ne.g: ?limit=100",
+            "required": false,
+            "type": "integer",
+            "default": 10
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Number of 'pages' to offset. e.g. Records will begin from page * limit\ne.g: ?page=42",
+            "required": false,
+            "type": "integer",
+            "default": 0
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "description": "Choose fields to include in the response\ne.g: ?field=title&field=start_date",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "source",
+                "source_id",
+                "results_available",
+                "review_status",
+                "ipd_sharing",
+                "intervention_type",
+                "intervention_name",
+                "n_enrollment",
+                "country",
+                "status",
+                "randomized",
+                "n_arms",
+                "blinding",
+                "population_condition",
+                "control",
+                "out_primary_measure",
+                "start_date",
+                "end_date",
+                "title",
+                "abstract",
+                "entry_type",
+                "url"
+              ]
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful search",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/clinical-trial"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameter"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "clinical-trial": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "example": "clinicaltrials.gov"
+        },
+        "source_id": {
+          "type": "string",
+          "example": "NCT04318015"
+        },
+        "results_available": {
+          "type": "string",
+          "example": "no"
+        },
+        "review_status": {
+          "type": "string",
+          "example": "manual extraction completed"
+        },
+        "ipd_sharing": {
+          "type": "string",
+          "example": "undecided"
+        },
+        "intervention_type": {
+          "type": "string",
+          "example": "drug"
+        },
+        "intervention_name": {
+          "type": "string",
+          "example": "Hydroxychloroquine 200mg per day for 60 days (high risk patients); Hydroxychloroquine 200mg per day for 60 days (low risk patients)"
+        },
+        "n_enrollment": {
+          "type": "integer",
+          "example": "400"
+        },
+        "country": {
+          "type": "string",
+          "example": "Mexico"
+        },
+        "status": {
+          "type": "string",
+          "example": "recruiting"
+        },
+        "randomized": {
+          "type": "string",
+          "example": "randomized"
+        },
+        "n_arms": {
+          "type": "integer",
+          "example": "4"
+        },
+        "blinding": {
+          "type": "string",
+          "example": "double blind"
+        },
+        "population_condition": {
+          "type": "string",
+          "example": "COVID-19; Severe Acute Respiratory Syndrome"
+        },
+        "control": {
+          "type": "string",
+          "example": "Placebo (high risk patients); Placebo (low risk patients)"
+        },
+        "out_primary_measure": {
+          "type": "string",
+          "example": "Symptomatic COVID-19 infection rate"
+        },
+        "start_date": {
+          "type": "string",
+          "example": "2020-04"
+        },
+        "end_date": {
+          "type": "string",
+          "example": "2021-03"
+        },
+        "title": {
+          "type": "string",
+          "example": "Chemoprophylaxis With Hydroxychloroquine in Healthcare Personnel in Contact With COVID-19 Patients: A Randomized Controlled Trial (PHYDRA Trial)"
+        },
+        "abstract": {
+          "type": "string",
+          "example": "Brief summary: Triple blinded, phase III randomized controlled trial with parallel groups (200mg of hydroxychloroquine per day vs. placebo) aiming to prove hydroxychloroquine's security and efficacy as prophylaxis treatment for healthcare personnel exposed to COVID-19 patients ..."
+        },
+        "entry_type": {
+          "type": "string",
+          "example": "registration"
+        },
+        "url": {
+          "type": "string",
+          "example": "url: 'https://clinicaltrials.gov/ct2/show/record/NCT04318015' label: 'https://clinicaltrials.gov/ct2/show/record/NCT04318015' target: _blank"
+        }
+      }
+    }
+  }
+}
