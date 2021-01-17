@@ -39,7 +39,7 @@ Leveraging clean architecture to ensure business logic is not coupled to the tec
 >"The overriding rule that makes this architecture work is The Dependency Rule. This rule says that source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle."
 
 To highlight this fact this project adds support for two repositories (PostgreSQL and Elasticsearch) as well as two http 
-frameworks (Express and Hapi).
+frameworks (Express and Hapi). Note: As currently implemented Hapi does not support swagger nor supertest.
 
 ## Installation
 ```
