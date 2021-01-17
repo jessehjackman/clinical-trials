@@ -82,7 +82,10 @@ Example:
 
 ![unindexed-autocannon.png](doc/readme/unindexed-autocannon.png)
 
-### Test Plan
+#### With full text search index
+![indexed-doctor.png](doc/readme/indexed-doctor.png)
+
+![indexed-autocannon.png](doc/readme/indexed-autocannon.png)
 
 
 ## TODO
@@ -90,9 +93,8 @@ Example:
     - Further integration tests / supertest, fake certain invalid db records
     - Unit tests on validation, serialization/xform
 - Circle CI
-- Full text search index (PostgreSQL)
 - Secure the 'query' parameter in PostgreSQL
-- Replace require with import/from per ecma 6
+- Replace require with import/from per ECMA 6
 - Fix an unclosed handle issue with super test
 - Wire in Hapi JS into supertest
 - Add swagger docs to Hapi JS
