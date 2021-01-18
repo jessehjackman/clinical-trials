@@ -93,6 +93,7 @@ i.e. http://localhost:3000/api-docs/#/covid/find-covid-trials
 Example:
 ![api-reference-example.png](doc/readme/api-reference-example.png)
 
+
 ## Test
 
 ### Performance 
@@ -113,6 +114,7 @@ Example:
 
 ## TODO
 - Retry logic
+- Investigate Swagger payload validation  
 - Logging
 - Health Check end point  
 - Maybe add query parameters for: (is) results available, number of enrolled?
