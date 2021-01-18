@@ -1,4 +1,7 @@
 'use strict';
+/**
+ * Primary entry point for the application
+ */
 
 const bootstrap = require('./lib/infrastructure/config/bootstrap');
 
