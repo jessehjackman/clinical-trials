@@ -18,7 +18,7 @@ Basic upskill project on the tech stack described below.
 2) Async primitives:  async-await
 3) Test framework: Jest / Supertest
 4) HTTP server framework: Express (e.g. routers, middleware)
-   - Leveraged Joi for validation
+   - @apidevtools/swagger-express-middleware
 5) HTTP client: Axios
 6) ~~HTTP Request GUI:  Paw (Postman is an option too but server devs are all on Paw now)~~
 7) Docker
@@ -114,7 +114,6 @@ Example:
 
 ## TODO
 - Retry logic
-- Investigate Swagger payload validation  
 - Logging
 - Health Check end point  
 - Maybe add query parameters for: (is) results available, number of enrolled?

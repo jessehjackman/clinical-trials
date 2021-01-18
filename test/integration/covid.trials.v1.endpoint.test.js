@@ -18,8 +18,6 @@ beforeAll(async () => {
     }
 })
 
-afterAll(() => app.close());
-
 describe('Base case', () => {
     describe("Expect 200", () => {
         it('given no query parameters expect success', async () => {
@@ -44,6 +42,10 @@ describe('Base case', () => {
         it('given invalid path expect 404', async () => {
             const response = await request(app).get('/v1/covid_error');
             expect(response.statusCode).toEqual(404);
+            console.log(
+                `swagger-express-middleware.requestMetadata console logs a warning when there is an invalid path
+                This seems pretty nasty considering its quite common and probably expect. How can you validate everything???
+                Seems like this should be a white listing option - also seems like this library is dead - last update was six months ago`);
         });
     });
 });
@@ -66,10 +68,6 @@ describe('Limit query parameter', () => {
             expect(response.statusCode).toEqual(200);
             expect(response.body.length).toEqual(1);
         })
-        it('given invalid limit query type value expect 400', async () => {
-            const response = await request(app).get('/v1/covid?limit=asdfa');
-            expect(response.statusCode).toEqual(400);
-        })
     });
     describe("Expect Error", () => {
         it('given invalid limit query parameter value less than 1 expect 400', async () => {
@@ -78,6 +76,10 @@ describe('Limit query parameter', () => {
         })
         it('given invalid limit query parameter value greater than 1000 expect 400', async () => {
             const response = await request(app).get('/v1/covid?limit=1001');
+            expect(response.statusCode).toEqual(400);
+        })
+        it('given invalid limit query type value expect 400', async () => {
+            const response = await request(app).get('/v1/covid?limit=asdfa');
             expect(response.statusCode).toEqual(400);
         })
     })
@@ -105,8 +107,5 @@ describe('Field query parameter', () => {
             expect(properties.includes('end_date')).toBe(false);
         })
     });
-    describe("Expect Error", () => {
-
-    })
 });
 

@@ -10,6 +10,7 @@
     "url": "https://bitbucket.org/jjackman/covid-trials/src/master/"
   },
   "dependencies": {
+    "@apidevtools/swagger-express-middleware": "^4.0.2",
     "@hapi/good": "^9.0.1",
     "@hapi/good-console": "^9.0.1",
     "@hapi/good-squeeze": "^6.0.0",
@@ -28,6 +29,7 @@
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
+    "@apidevtools/swagger-parser": "^10.0.2",
     "@hapi/inert": "^6.0.3",
     "hapi-swagger": "^14.0.0",
     "jest": "^26.0.1",
