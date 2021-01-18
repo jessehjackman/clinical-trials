@@ -8,6 +8,7 @@ const request = require('supertest')
 let app;
 
 beforeAll(async () => {
+    jest.setTimeout(10000);
     if (env.server.framework === constants.SUPPORTED_FRAMEWORK.EXPRESS) {
         const createServer = require('../../lib/infrastructure/webserver/expressjs-server');
         app = await createServer();
