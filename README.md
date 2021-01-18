@@ -112,6 +112,9 @@ Example:
 ![indexed-autocannon.png](doc/readme/indexed-autocannon.png)
 
 ## TODO
+- Retry logic
+- Logging
+- Health Check end point  
 - Maybe add query parameters for: (is) results available, number of enrolled?
 - Complete test plan
     - Further integration tests / supertest, fake certain invalid db records
