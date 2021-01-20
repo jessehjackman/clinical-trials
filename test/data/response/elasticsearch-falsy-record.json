@@ -1,0 +1,50 @@
+{
+  "took": 54,
+  "timed_out": false,
+  "_shards": {
+    "total": 8,
+    "successful": 8
+  },
+  "hits": {
+    "total": {
+      "value": 1732,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "covid",
+        "_type": "_doc",
+        "_id": "1821",
+        "_score": null,
+        "_source": {
+          "source": "",
+          "source_id":  "",
+          "results_available":  "",
+          "review_status":  "",
+          "ipd_sharing":  "",
+          "intervention_type":  "",
+          "intervention_name": "",
+          "n_enrollment":  0,
+          "country":  "",
+          "status":  "",
+          "randomized":  "",
+          "n_arms":  0,
+          "blinding":  "",
+          "population_condition":  "",
+          "control":  "",
+          "out_primary_measure":  "",
+          "start_date":  "",
+          "end_date":  "",
+          "title":  "",
+          "abstract":  "",
+          "entry_type":  "",
+          "url": ""
+        },
+        "sort": [
+          1451606400000
+        ]
+      }
+    ]
+  }
+}

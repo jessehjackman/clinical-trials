@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * TODO: Work in test env variables
+ * TODO: Finish the test plan
+ * TODO: Complete me
+ */
+
 require('dotenv').config();
 
 const env = require('../../lib/infrastructure/config/environment')
@@ -16,6 +22,11 @@ beforeAll(async () => {
         app = require('../../lib/infrastructure/webserver/hapijs-server');
         app = await createServer();
     }
+})
+
+afterEach(async () => {
+    jest.resetModules();
+    jest.restoreAllMocks();
 })
 
 describe('Base case', () => {
@@ -106,6 +117,20 @@ describe('Field query parameter', () => {
             expect(properties.includes('start_date')).toBe(true);
             expect(properties.includes('end_date')).toBe(false);
         })
+
     });
 });
 
+describe('Falsy database result', () => {
+    describe("Expect 200", () => {
+        it('given null number expect falsy 0', async () => {
+            const response = await request(app).get('/v1/covid?limit=1&field=title');
+            expect(response.statusCode).toEqual(200);
+            const [record] = response.body;
+            const properties = Object.keys(record);
+            expect(properties.length).toEqual(1);
+            expect(properties.includes('title')).toBe(false);
+            expect(properties.includes('start_date')).toBe(true);
+        })
+    });
+});
