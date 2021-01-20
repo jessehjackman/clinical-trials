@@ -120,17 +120,3 @@ describe('Field query parameter', () => {
 
     });
 });
-
-describe('Falsy database result', () => {
-    describe("Expect 200", () => {
-        it('given null number expect falsy 0', async () => {
-            const response = await request(app).get('/v1/covid?limit=1&field=title');
-            expect(response.statusCode).toEqual(200);
-            const [record] = response.body;
-            const properties = Object.keys(record);
-            expect(properties.length).toEqual(1);
-            expect(properties.includes('title')).toBe(false);
-            expect(properties.includes('start_date')).toBe(true);
-        })
-    });
-});
