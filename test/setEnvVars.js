@@ -1,0 +1,12 @@
+process.env.FRAMEWORK = 'express';
+process.env.PORT = '3000';
+process.env.REPOSITORY_DIALECT = 'postgres';
+process.env.DATABASE_LOCATION = 'localhost';
+process.env.DATABASE_USER = 'postgres';
+process.env.DATABASE_PASSWORD = 'postgres';
+process.env.DATABASE_PORT = '5555'
+process.env.DATABASE_NAME = 'covid';
+process.env.DATABASE_DEBUG = 'false';
+process.env.ES_QUERY_ENDPOINT = '';
+process.env.ES_USERNAME = '';
+process.env.ES_PASSWORD = '';

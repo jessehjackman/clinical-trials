@@ -6,9 +6,9 @@
 const bootstrap = require('./lib/infrastructure/config/bootstrap');
 
 const start = async () => {
-
   try {
-    await bootstrap.init();
+    const server = await bootstrap.init();
+    server.start();
   } catch (err) {
     console.log(err);
     process.exit(1);

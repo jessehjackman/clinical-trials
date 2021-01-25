@@ -3,18 +3,17 @@
 /**
  * Jest spyOn axios post method which is used by the elasticsearch repository to satisfy the request.
  */
-
-require('dotenv').config();
+process.env.REPOSITORY_DIALECT = 'es';
+const bootstrap = require('../../../lib/infrastructure/config/bootstrap');
 const axios = require('axios');
 const request = require('supertest')
-const expressServer = require('../../lib/infrastructure/webserver/expressjs-server');
-const esFalsyResponse = require('../data/response/elasticsearch-falsy-response.json')
-const falsyRecord = require('../data/response/falsy-record.json')
+const esFalsyResponse = require('../../data/response/elasticsearch-falsy-response.json')
+const falsyRecord = require('../../data/response/falsy-record.json')
 
 let app;
 
 beforeAll(async () => {
-    app = await expressServer();
+    app = await bootstrap.init();
 })
 
 afterEach(async () => {

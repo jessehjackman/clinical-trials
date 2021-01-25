@@ -1,20 +1,17 @@
 'use strict';
 
 /**
- * mock upskill
- * TODO: COMPLETE ME
+ * Jest mock upskill
  */
-
-require('dotenv').config();
+const bootstrap = require('../../../lib/infrastructure/config/bootstrap');
 const request = require('supertest')
-const expressServer = require('../../lib/infrastructure/webserver/expressjs-server');
 let app;
 
 let mockRepositoryResult; //Establishing the reference so that this object can be mutated in the tests below
-jest.mock('../../lib/infrastructure/repositories/relational-repository', () => () => mockRepositoryResult);
+jest.mock('../../../lib/infrastructure/repositories/relational-repository', () => () => mockRepositoryResult);
 
 beforeAll(async () => {
-    app = await expressServer();
+    app = await bootstrap.init();
 })
 
 afterEach(async () => {
@@ -31,21 +28,16 @@ describe('Falsy database results', () => {
             const [record] = response.body;
             const properties = Object.keys(record);
             expect(properties.length).toEqual(1);
-            expect(properties.includes('title')).toBe(false);
-            expect(properties.includes('start_date')).toBe(true);
+            expect(record).toEqual(expect.objectContaining({
+                start_date: null
+            }))
         })
 
         it('given no results expect empty record', async () => {
-            mockRepositoryResult = [{end_date:null}];
+            mockRepositoryResult = [];
             const response = await request(app).get('/v1/covid');
             expect(response.statusCode).toEqual(200);
-            const [record] = response.body;
-            const properties = Object.keys(record);
-            expect(properties.length).toEqual(1);
-            expect(properties.includes('start_date')).toBe(false);
-            expect(properties.includes('end_date')).toBe(true);
-
-
+            expect(response.body).toEqual([]);
         })
     });
 });

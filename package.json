@@ -16,7 +16,6 @@
     "@hapi/good-squeeze": "^6.0.0",
     "@hapi/hapi": "^20.0.3",
     "@hapi/vision": "^6.0.1",
-    "autocannon": "^7.0.1",
     "axios": "^0.21.1",
     "blipp": "^4.0.2",
     "dotenv": "^8.2.0",
@@ -32,12 +31,23 @@
     "@apidevtools/swagger-parser": "^10.0.2",
     "@hapi/inert": "^6.0.3",
     "hapi-swagger": "^14.0.0",
-    "jest": "^26.0.1",
-    "supertest": "^6.0.1"
+    "mocha": "^8.2.1",
+    "chai": "^4.2.0",
+    "sinon": "^9.2.3",
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1",
+    "autocannon": "^7.0.1",
+    "mochawesome": "^6.2.1"
   },
   "scripts": {
     "start": "node index.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest ./test/integration/jest --forceExit",
+    "test-mocha": "mocha ./test/integration/mocha --reporter mochawesome --reporter-options quiet=true"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/setEnvVars.js"
+    ]
   },
   "engines": {
     "node": ">=12",
